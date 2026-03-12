@@ -1,547 +1,4 @@
 export default {
-    "Inventory_Specification": [
-        {
-            "name": "burger",
-            "type": "mass"
-        },
-        {
-            "name": "6oz-burger-bun",
-            "type": "mass"
-        },
-        {
-            "name": "3oz-burger-bun",
-            "type": "mass"
-        },
-        {
-            "name": "lettuce",
-            "type": "mass"
-        },
-        {
-            "name": "tomato",
-            "type": "mass"
-        },
-        {
-            "name": "pickle",
-            "type": "mass"
-        },
-        {
-            "name": "onion",
-            "type": "mass"
-        },
-        {
-            "name": "ranch-mix",
-            "type": "mass"
-        },
-        {
-            "name": "sourcream",
-            "type": "mass"
-        },
-        {
-            "name": "ancho-chili-peppers",
-            "type": "mass"
-        },
-        {
-            "name": "ancho-chili-puree",
-            "type": "mass"
-        },
-        {
-            "name": "mayonaise",
-            "type": "mass"
-        },
-        {
-            "name": "butter-milk",
-            "type": "mass"
-        },
-        {
-            "name": "dressing-seasoning",
-            "type": "mass"
-        },
-        {
-            "name": "ranch",
-            "type": "mass"
-        },
-        {
-            "name": "french-fries",
-            "type": "mass"
-        },
-        {
-            "name": "nagasaki-tots",
-            "type": "mass"
-        }
-    ],
-    "Recipes_Specification": [
-        {
-            "name": "ranch-ranch-mix",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "ranch-mix",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "mayonaise",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "butter-milk",
-                        "amount": 1,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ranch-home-made",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "dressing-seasoning",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "mayonaise",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "sour-cream",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "butter-milk",
-                        "amount": 1,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ranch",
-            "ingredients": {
-                "type": "alternative",
-                "items": [
-                    {
-                        "name": "ranch-ranch-mix",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "ranch-home-made",
-                        "amount": 1,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ancho-chili-paste",
-            "ingredients": {
-                "type": "alternative",
-                "items": [
-                    {
-                        "name": "ancho-chili-peppers",
-                        "amount": 1,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "ancho-chili-puree",
-                        "amount": 1,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ancho-ranch",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "ranch",
-                        "amount": 18,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "ancho-chili-paste",
-                        "amount": 3,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "garden salad",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "lettuce",
-                        "amount": 9,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "tomato",
-                        "amount": 30,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "onion",
-                        "amount": 15,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "ranch",
-                        "amount": 2,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "LTOP",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "lettuce",
-                        "amount": 28,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "tomato",
-                        "amount": 30,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "onion",
-                        "amount": 15,
-                        "unit": "g"
-                    },
-                    {
-                        "name": "pickle",
-                        "amount": 12,
-                        "unit": "g"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Fat Man Burger",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "burger",
-                        "amount": 6,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "LTOP",
-                        "amount": 3,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "6oz-burger-bun",
-                        "amount": 6,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "mayonaise",
-                        "amount": 2,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Little Boy Sliders",
-            "ingredients": {
-                "type": "list",
-                "items": [
-                    {
-                        "name": "burger",
-                        "amount": 9,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "LTOP",
-                        "amount": 4,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "3oz-burger-bun",
-                        "amount": 9,
-                        "unit": "oz"
-                    },
-                    {
-                        "name": "ancho-ranch",
-                        "amount": 2,
-                        "unit": "oz"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "burger",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "6oz-burger-bun",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "3oz-burger-bun",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "lettuce",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "tomato",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "pickle",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "onion",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "ranch-mix",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "sourcream",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "ancho-chili-peppers",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "ancho-chili-puree",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "mayonaise",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "butter-milk",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "dressing-seasoning",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "ranch",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "french-fries",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        },
-        {
-            "name": "nagasaki-tots",
-            "ingredients": {
-                "type": "list",
-                "items": []
-            }
-        }
-    ],
-    "Products_Specification": [
-        {
-            "name": "Fat Man & Little Boy Platter",
-            "items": [
-                {
-                    "name": "Burger 1",
-                    "required": true,
-                    "choices": [
-                        {
-                            "name": "Fat Man Burger"
-                        }
-                    ]
-                },
-                {
-                    "name": "Burger 2",
-                    "required": true,
-                    "choices": [
-                        {
-                            "name": "Little Boy Sliders"
-                        },
-                        {
-                            "name": "Fat Man Burger"
-                        }
-                    ]
-                },
-                {
-                    "name": "Sides",
-                    "required": false,
-                    "choices": [
-                        {
-                            "name": "french-fries"
-                        },
-                        {
-                            "name": "nagasaki-tots"
-                        },
-                        {
-                            "name": "garden salad"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "Sales_Data": [
-        {
-            "Name": "Fat Man & Little Boy Platter",
-            "Amount": 31,
-            "Price": 33,
-            "Date": "2025-01-02",
-            "Choices": "Fat Man Burger",
-            "ChoiceAmount": 9,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "Little Boy Sliders",
-            "ChoiceAmount": 22,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "french-fries",
-            "ChoiceAmount": 8,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "nagasaki-tots",
-            "ChoiceAmount": 20,
-            "Upcharge": 1.99
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "garden salad",
-            "ChoiceAmount": 3,
-            "Upcharge": 2.99
-        },
-        {
-            "Name": "Fat Man & Little Boy Platter",
-            "Amount": 22,
-            "Price": 33,
-            "Date": "2025-01-03",
-            "Choices": "Fat Man Burger",
-            "ChoiceAmount": 4,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "Little Boy Sliders",
-            "ChoiceAmount": 18,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "french-fries",
-            "ChoiceAmount": 10,
-            "Upcharge": 0
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "nagasaki-tots",
-            "ChoiceAmount": 11,
-            "Upcharge": 1.99
-        },
-        {
-            "Name": null,
-            "Amount": null,
-            "Price": null,
-            "Date": null,
-            "Choices": "garden salad",
-            "ChoiceAmount": 1,
-            "Upcharge": 2.99
-        }
-    ],
     "Inventory_Data": [
         {
             "Name": "burger",
@@ -668,6 +125,411 @@ export default {
             "Amount": 20,
             "Unit": "g",
             "Date": "2025-01-01T00:00:00.000Z"
+        }
+    ],
+    "Inventory_Specification": [
+        {
+            "Name": "burger",
+            "Type": "mass"
+        },
+        {
+            "Name": "6oz-burger-bun",
+            "Type": "mass"
+        },
+        {
+            "Name": "3oz-burger-bun",
+            "Type": "mass"
+        },
+        {
+            "Name": "lettuce",
+            "Type": "mass"
+        },
+        {
+            "Name": "tomato",
+            "Type": "mass"
+        },
+        {
+            "Name": "pickle",
+            "Type": "mass"
+        },
+        {
+            "Name": "onion",
+            "Type": "mass"
+        },
+        {
+            "Name": "ranch-mix",
+            "Type": "mass"
+        },
+        {
+            "Name": "sourcream",
+            "Type": "mass"
+        },
+        {
+            "Name": "ancho-chili-peppers",
+            "Type": "mass"
+        },
+        {
+            "Name": "ancho-chili-puree",
+            "Type": "mass"
+        },
+        {
+            "Name": "mayonaise",
+            "Type": "mass"
+        },
+        {
+            "Name": "butter-milk",
+            "Type": "mass"
+        },
+        {
+            "Name": "dressing-seasoning",
+            "Type": "mass"
+        },
+        {
+            "Name": "ranch",
+            "Type": "mass"
+        },
+        {
+            "Name": "french-fries",
+            "Type": "mass"
+        },
+        {
+            "Name": "nagasaki-tots",
+            "Type": "mass"
+        }
+    ],
+    "Products_Specification": [
+        {
+            "Name": "Fat Man & Little Boy Platter",
+            "ItemName": "Burger 1",
+            "IsRequired": true,
+            "Choices": "Fat Man Burger"
+        },
+        {
+            "Name": null,
+            "ItemName": "Burger 2",
+            "IsRequired": true,
+            "Choices": "Little Boy Sliders"
+        },
+        {
+            "Name": null,
+            "ItemName": null,
+            "IsRequired": null,
+            "Choices": "Fat Man Burger"
+        },
+        {
+            "Name": null,
+            "ItemName": "Sides",
+            "IsRequired": false,
+            "Choices": "french-fries"
+        },
+        {
+            "Name": null,
+            "ItemName": null,
+            "IsRequired": null,
+            "Choices": "nagasaki-tots"
+        },
+        {
+            "Name": null,
+            "ItemName": null,
+            "IsRequired": null,
+            "Choices": "garden salad"
+        }
+    ],
+    "Recipes_Specification": [
+        {
+            "Name": "ranch-ranch-mix",
+            "IngredientType": "list",
+            "IngredientName": "ranch-mix",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "mayonaise",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "butter-milk",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": "ranch-home-made",
+            "IngredientType": "list",
+            "IngredientName": "dressing-seasoning",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "mayonaise",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "sour-cream",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "butter-milk",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": "ranch",
+            "IngredientType": "alternative",
+            "IngredientName": "ranch-ranch-mix",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "ranch-home-made",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": "ancho-chili-paste",
+            "IngredientType": "alternative",
+            "IngredientName": "ancho-chili-peppers",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "ancho-chili-puree",
+            "Amount": 1,
+            "Unit": "oz"
+        },
+        {
+            "Name": "ancho-ranch",
+            "IngredientType": "list",
+            "IngredientName": "ranch",
+            "Amount": 18,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "ancho-chili-paste",
+            "Amount": 3,
+            "Unit": "oz"
+        },
+        {
+            "Name": "garden salad",
+            "IngredientType": "list",
+            "IngredientName": "lettuce",
+            "Amount": 9,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "tomato",
+            "Amount": 30,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "onion",
+            "Amount": 15,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "ranch",
+            "Amount": 2,
+            "Unit": "oz"
+        },
+        {
+            "Name": "LTOP",
+            "IngredientType": "list",
+            "IngredientName": "lettuce",
+            "Amount": 28,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "tomato",
+            "Amount": 30,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "onion",
+            "Amount": 15,
+            "Unit": "g"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "pickle",
+            "Amount": 12,
+            "Unit": "g"
+        },
+        {
+            "Name": "Fat Man Burger",
+            "IngredientType": "list",
+            "IngredientName": "burger",
+            "Amount": 6,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "LTOP",
+            "Amount": 3,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "6oz-burger-bun",
+            "Amount": 6,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "mayonaise",
+            "Amount": 2,
+            "Unit": "oz"
+        },
+        {
+            "Name": "Little Boy Sliders",
+            "IngredientType": "list",
+            "IngredientName": "burger",
+            "Amount": 9,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "LTOP",
+            "Amount": 4,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "3oz-burger-bun",
+            "Amount": 9,
+            "Unit": "oz"
+        },
+        {
+            "Name": null,
+            "IngredientType": null,
+            "IngredientName": "ancho-ranch",
+            "Amount": 2,
+            "Unit": "oz"
+        }
+    ],
+    "Sales_Data": [
+        {
+            "Name": "Fat Man & Little Boy Platter",
+            "Amount": 31,
+            "Price": 33,
+            "Date": "2025-01-02",
+            "Choices": "Fat Man Burger",
+            "ChoiceAmount": 9,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "Little Boy Sliders",
+            "ChoiceAmount": 22,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "french-fries",
+            "ChoiceAmount": 8,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "nagasaki-tots",
+            "ChoiceAmount": 20,
+            "Upcharge": 1.99
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "garden salad",
+            "ChoiceAmount": 3,
+            "Upcharge": 2.99
+        },
+        {
+            "Name": "Fat Man & Little Boy Platter",
+            "Amount": 22,
+            "Price": 33,
+            "Date": "2025-01-03",
+            "Choices": "Fat Man Burger",
+            "ChoiceAmount": 4,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "Little Boy Sliders",
+            "ChoiceAmount": 18,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "french-fries",
+            "ChoiceAmount": 10,
+            "Upcharge": 0
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "nagasaki-tots",
+            "ChoiceAmount": 11,
+            "Upcharge": 1.99
+        },
+        {
+            "Name": null,
+            "Amount": null,
+            "Price": null,
+            "Date": null,
+            "Choices": "garden salad",
+            "ChoiceAmount": 1,
+            "Upcharge": 2.99
         }
     ]
 }
