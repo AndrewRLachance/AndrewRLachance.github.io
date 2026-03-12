@@ -113,7 +113,7 @@ const toSalesData = rows => rows.reduce(({
     choices: []
 })
 
-export function loadProducts(sales) {
+export function loadSales(sales) {
     sales = sales.reduce(aggregate, [])
     sales = sales.map(toSalesData).sort((x, y) => x.date <= y.date)
     return sales

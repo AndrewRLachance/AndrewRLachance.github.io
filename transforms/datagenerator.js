@@ -1,8 +1,7 @@
 import _, { } from 'lodash';
 import { toMetricBase } from '../measurements.js';
-import { readFileSync } from 'node:fs';
-import { loadCsv, buildSchemas, loadInventoryData, loadProducts } from '../paparse-testing.js';
-import { getWeekOfMonth, getDayOfYear, getMonth, isEqual } from 'date-fns'
+import { buildSchemas, loadInventoryData, loadSales } from './ingestion.js';
+import { getWeekOfMonth, getMonth, isEqual } from 'date-fns'
 
 class Schemas {
 
@@ -278,14 +277,15 @@ export function simulate({ Inventory_Specification, Products_Specification, Reci
     const specs = buildSchemas({ Inventory_Specification, Products_Specification, Recipes_Specification })
     const schema = new Schemas(specs)
 
+    const inventoryData = loadInventoryData(Inventory_Data)
+    const salesData = loadSales(Sales_Data)
 
-
-    const initialInventory = Object.values(Inventory_Data.reduce((p, c) => (!(c.name in p) || c.date <= p[c.name]?.date) ? ({ ...p,  [c.name]: c }) : p, {}))
+    const initialInventory = Object.values(inventoryData.reduce((p, c) => (!(c.name in p) || c.date <= p[c.name]?.date) ? ({ ...p,  [c.name]: c }) : p, {}))
 
     schema.setInitialInventory(initialInventory)
     schema.addInitialInventory()
 
-    schema.setSales(Sales_Data)
+    schema.setSales(salesData)
 
     schema.runSales()
 

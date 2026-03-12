@@ -2,7 +2,6 @@ import { Chart } from 'chart.js';
 import initialData from '../data/initial-data.js';
 import * as Utils from './utils.js'
 import _, { } from 'lodash';
-import { loadCSV } from '../paparse-testing.js';
 
 let {
   Recipes_Specification, Products_Specification, Inventory_Specification, Sales_Data, Inventory_Data
