@@ -1,5 +1,5 @@
 import _ from "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.js";
-import { toMetricBase } from '../measurements.js';
+import { toMetricBase } from './conversions.js';
 import { buildSchemas, loadInventoryData, loadSales } from './ingestion.js';
 import { getWeekOfMonth, getMonth, isEqual } from "https://cdn.jsdelivr.net/npm/date-fns@3/+esm";
 
