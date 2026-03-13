@@ -18,8 +18,6 @@ const htmlIdJsonMap = {
   'inventory-data': Inventory_Data
 }
 
-for(const k of htmlIdJsonMap) replaceTableWithEditableJSON(`${k}-table`, htmlIdJsonMap[k])
-
 
 
 function replaceTableWithEditableJSON(tableId, jsonData) {
@@ -194,6 +192,8 @@ function tryRenderChart() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  for(const k of htmlIdJsonMap) replaceTableWithEditableJSON(`${k}-table`, htmlIdJsonMap[k])
 
   Object.keys(htmlIdJsonMap).forEach(id => document.getElementById(id).addEventListener("change", e => {
 
