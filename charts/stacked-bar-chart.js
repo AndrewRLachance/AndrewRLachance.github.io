@@ -1,21 +1,28 @@
-import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
+import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement, Title, Legend } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
 import { simulate, toStackedGraphDataset, fromGramsToOz } from '../transforms/datagenerator.js';
 
-let {
-  Recipes_Specification, Products_Specification, Inventory_Specification, Sales_Data, Inventory_Data
-} = initialData
+Chart.register([
+  CategoryScale,
+  BarController,
+  BarElement,
+  LinearScale,
+  PointElement,
+  Title,
+  Legend
+]);
+
 
 let ingredientDropdown = []
 
 let selectedIngredient = 'burger'
 let chart = null
 const htmlIdJsonMap = {
-  'inventory-specification': initialData.Inventory_Specification,
-  'products-specification': initialData.Products_Specification,
-  'recipes-specification': initialData.Recipes_Specification,
-  'sales-data': initialData.Sales_Data,
-  'inventory-data': initialData.Inventory_Data
+  'inventory-specification': 'Inventory_Specification',
+  'products-specification': 'Products_Specification',
+  'recipes-specification': 'Recipes_Specification',
+  'sales-data': 'Sales_Data',
+  'inventory-data': 'Inventory_Data'
 }
 
 
@@ -91,9 +98,9 @@ function populateDropdown(selectId, values) {
 }
 
 function tryPopulateDropdown() {
-    if(!Inventory_Specification) return 
+    if(!initialData.Inventory_Specification) return 
     
-    ingredientDropdown = [...new Set(Inventory_Data.map(({ Name='', name }) => Name || name))]
+    ingredientDropdown = [...new Set(initialData.Inventory_Data.map(({ Name='', name }) => Name || name))]
 
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
@@ -125,13 +132,13 @@ const CHART_COLORS = {
 
 function tryRenderChart() {
 
-  if (!Inventory_Specification || !Products_Specification || !Recipes_Specification || !Sales_Data || !Inventory_Data) return;
+  if (!initialData.Inventory_Specification || !initialData.Products_Specification || !initialData.Recipes_Specification || !initialData.Sales_Data || !initialData.Inventory_Data) return;
 
-  const { inventory, expectedInventory, sales, recipes } = simulate({ Inventory_Specification, Products_Specification, Recipes_Specification, Sales_Data, Inventory_Data })
+  const { inventory, expectedInventory, sales, recipes } = simulate(initialData)
   
   const { dataset1, dataset2, dataset3 } = toStackedGraphDataset(inventory, recipes, expectedInventory, selectedIngredient)
 
-  const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const labels = dataset1.map((_, i) => i + 1);
 
   const data = {
     labels: labels,
@@ -164,7 +171,7 @@ function tryRenderChart() {
       plugins: {
         title: {
           display: true,
-          text: `Expected Inventory: ${selectedIngredient[0].toUpperCase() + selectedIngredient.slice(1)}`
+          text: `Expected Inventory: `
         },
       },
       responsive: true,
@@ -191,28 +198,25 @@ function tryRenderChart() {
   );
 }
 
-Chart.register([
-  CategoryScale,
-  BarController,
-  BarElement,
-  LinearScale,
-  PointElement
-]);
+
+function populateTables() {
+  for(const k in htmlIdJsonMap) replaceTableWithEditableJSON(`${k}-table`, initialData[htmlIdJsonMap[k]])
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  for(const k in htmlIdJsonMap) replaceTableWithEditableJSON(`${k}-table`, htmlIdJsonMap[k])
+  populateTables()
 
   Object.keys(htmlIdJsonMap).forEach(id => document.getElementById(id).addEventListener("change", e => {
 
-    loadCSV(e.target.files[0], d => {
+    loadCSV(e.target.files[0], ({ data }) => {
 
-      Inventory_Specification = id === 'inventory-specification' ? d : Inventory_Specification
-      Products_Specification = id === 'products-specification' ? d : Products_Specification
-      Recipes_Specification = id === 'recipes-specification' ? d : Recipes_Specification
-      Sales_Data = id === 'sales-data' ? d : Sales_Data
-      Inventory_Data = id === 'inventory-data' ? d : Inventory_Data
-    
+      initialData.Inventory_Specification = id === 'inventory-specification' ? data : initialData.Inventory_Specification
+      initialData.Products_Specification = id === 'products-specification' ? data : initialData.Products_Specification
+      initialData.Recipes_Specification = id === 'recipes-specification' ? data : initialData.Recipes_Specification
+      initialData.Sales_Data = id === 'sales-data' ? data : initialData.Sales_Data
+      initialData.Inventory_Data = id === 'inventory-data' ? data : initialData.Inventory_Data
+      populateTables()
       tryPopulateDropdown();
       tryRenderChart();
     });
