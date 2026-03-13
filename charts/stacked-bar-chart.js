@@ -221,6 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
 
   tryPopulateDropdown();
-  onDropdownSelection("ingredients-dropdown", selectedValue => {selectedIngredient = selectedValue});
+  onDropdownSelection("ingredients-dropdown", selectedValue => {
+    selectedIngredient = selectedValue
+    tryRenderChart()
+  });
   tryRenderChart();
 });
