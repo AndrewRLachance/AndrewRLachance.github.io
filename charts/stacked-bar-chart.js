@@ -93,6 +93,7 @@ function populateDropdown(selectId, values) {
 
 function tryPopulateDropdown() {
     if(!Inventory_Specification) return 
+    
     ingredientDropdown.push(...Inventory_Data.map(({ name }) => name))
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
@@ -211,6 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }))
 
-  onDropdownSelection("columnDropdown", selectedValue => selectedIngredient = selectedValue);
-
+  tryPopulateDropdown();
+  onDropdownSelection("columnDropdown", selectedValue => {selectedIngredient = selectedValue});
 });
