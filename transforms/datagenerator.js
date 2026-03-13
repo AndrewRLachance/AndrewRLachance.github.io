@@ -91,6 +91,7 @@ class InventoryData {
 class RecipeData {
 
     name
+    yield
     ingredientsType
     ingredients
     data = []
@@ -283,8 +284,8 @@ export function getLast(arr) {
   return arr?.slice(-1)?.[0]
 }
 
-export function fromGramsToOz(amount) {
-  return fromBase('oz', toImperialBase('g', amount))
+export function fromGramsToOz(amount, meas='oz') {
+  return fromBase(meas, toImperialBase('g', amount))
 }
 
 export function toStackedGraphDataset(inventory, recipes, expectedInventory, key) {

@@ -1,6 +1,7 @@
 import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement, Title, Legend, Tooltip } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
 import { simulate, toStackedGraphDataset, fromGramsToOz } from '../transforms/datagenerator.js';
+import { measurements } from "../transforms/conversions.js";
 
 Chart.register([
   CategoryScale,
@@ -15,7 +16,8 @@ Chart.register([
 
 
 let ingredientDropdown = []
-
+let unitDropdown = Object.keys(measurements)
+let selectedUnit = 'oz'
 let selectedIngredient = 'burger'
 let chart = null
 const htmlIdJsonMap = {
@@ -106,6 +108,9 @@ function tryPopulateDropdown() {
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
 
+
+
+
 function onDropdownSelection(selectId, callback) {
 
     const dropdown = document.getElementById(selectId);
@@ -146,19 +151,19 @@ function tryRenderChart() {
     datasets: [
       {
         label: 'Inventory',
-        data: dataset3.map(fromGramsToOz),
+        data: dataset3.map(x => fromGramsToOz(x, selectedUnit)),
         backgroundColor: CHART_COLORS.green,
         stack: 'Stack 0',
       },
       {
         label: 'Inventory Difference',
-        data: dataset2.map(fromGramsToOz),
+        data: dataset2.map(x => fromGramsToOz(x, selectedUnit)),
         backgroundColor: CHART_COLORS.red,
         stack: 'Stack 0',
       },
       {
         label: 'Recipe Usage',
-        data: dataset1.map(fromGramsToOz),
+        data: dataset1.map(x => fromGramsToOz(x, selectedUnit)),
         backgroundColor: CHART_COLORS.blue,
         stack: 'Stack 0',
       }
@@ -217,16 +222,21 @@ document.addEventListener("DOMContentLoaded", () => {
       initialData.Recipes_Specification = id === 'recipes-specification' ? data : initialData.Recipes_Specification
       initialData.Sales_Data = id === 'sales-data' ? data : initialData.Sales_Data
       initialData.Inventory_Data = id === 'inventory-data' ? data : initialData.Inventory_Data
+      
       populateTables()
       tryPopulateDropdown();
       tryRenderChart();
     });
 
   }))
-
+  populateDropdown('unit-dropdown', unitDropdown)
   tryPopulateDropdown();
   onDropdownSelection("ingredients-dropdown", selectedValue => {
     selectedIngredient = selectedValue
+    tryRenderChart()
+  });
+    onDropdownSelection("unit-dropdown", selectedValue => {
+    selectedUnit = selectedValue
     tryRenderChart()
   });
   tryRenderChart();
