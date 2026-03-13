@@ -11,11 +11,11 @@ const ingredientDropdown = []
 let selectedIngredient = null
 let chart = null
 const htmlIdJsonMap = {
-  'inventory-specification': Inventory_Specification,
-  'products-specification': Products_Specification,
-  'recipes-specification': Recipes_Specification,
-  'sales-data': Sales_Data,
-  'inventory-data': Inventory_Data
+  'inventory-specification': initialData.Inventory_Specification,
+  'products-specification': initialData.Products_Specification,
+  'recipes-specification': initialData.Recipes_Specification,
+  'sales-data': initialData.Sales_Data,
+  'inventory-data': initialData.Inventory_Data
 }
 
 
@@ -94,7 +94,7 @@ function populateDropdown(selectId, values) {
 function tryPopulateDropdown() {
     if(!Inventory_Specification) return 
     
-    ingredientDropdown.push(...Inventory_Data.map(({ Name }) => Name))
+    ingredientDropdown.push(...Inventory_Data.map(({ Name='', name }) => Name || name))
 
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
@@ -215,4 +215,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tryPopulateDropdown();
   onDropdownSelection("ingredients-dropdown", selectedValue => {selectedIngredient = selectedValue});
+  tryRenderChart();
 });
