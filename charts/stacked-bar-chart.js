@@ -1,4 +1,4 @@
-import {Chart} from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
+import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
 import { simulate, toStackedGraphDataset, fromGramsToOz } from '../transforms/datagenerator.js';
 
@@ -192,6 +192,13 @@ function tryRenderChart() {
   );
 }
 
+Chart.register([
+  CategoryScale,
+  BarController,
+  BarElement,
+  LinearScale,
+  PointElement
+]);
 
 document.addEventListener("DOMContentLoaded", () => {
 
