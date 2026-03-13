@@ -1,7 +1,5 @@
-import { Chart } from 'chart.js';
+// import Chart from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
-import * as Utils from './utils.js'
-import _, { } from 'lodash';
 import { simulate, toStackedGraphDataset } from '../transforms/datagenerator.js';
 
 let {
@@ -116,6 +114,15 @@ function onDropdownSelection(selectId, callback) {
     });
 
 }
+const CHART_COLORS = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+};
 
 function tryRenderChart() {
 
@@ -133,19 +140,19 @@ function tryRenderChart() {
       {
         label: 'Inventory',
         data: dataset3.map(fromGramsToOz),
-        backgroundColor: Utils.CHART_COLORS.green,
+        backgroundColor: CHART_COLORS.green,
         stack: 'Stack 0',
       },
       {
         label: 'Inventory Difference',
         data: dataset2.map(fromGramsToOz),
-        backgroundColor: Utils.CHART_COLORS.red,
+        backgroundColor: CHART_COLORS.red,
         stack: 'Stack 0',
       },
       {
         label: 'Recipe Usage',
         data: dataset1.map(fromGramsToOz),
-        backgroundColor: Utils.CHART_COLORS.blue,
+        backgroundColor: CHART_COLORS.blue,
         stack: 'Stack 0',
       }
     ]
