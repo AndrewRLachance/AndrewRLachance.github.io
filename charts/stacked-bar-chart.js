@@ -165,7 +165,7 @@ function tryRenderChart() {
       plugins: {
         title: {
           display: true,
-          text: `Expected Inventory: ${stockKey[0].toUpperCase() + stockKey.slice(1)}`
+          text: `Expected Inventory: ${selectedIngredient[0].toUpperCase() + selectedIngredient.slice(1)}`
         },
       },
       responsive: true,
