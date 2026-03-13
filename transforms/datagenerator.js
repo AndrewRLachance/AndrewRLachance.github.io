@@ -307,7 +307,7 @@ export function toStackedGraphDataset(inventory, recipes, expectedInventory, key
     const actualInventory = grouped[day]?.actualInventory?.[0]?.amount ?? 0
     const expectedInventory = grouped[day]?.expectedInventory?.[0]?.amount ?? getLast(dataset3) ?? 0
 
-    const difference = (getLast(dataset3) && actualInventory) ? actualInventory - getLast(dataset3) : 0
+    const difference = (getLast(dataset3) && actualInventory) ? actualInventory - expectedInventory : 0
     
     dataset1.push(recipeUsage)
     dataset2.push(difference)
