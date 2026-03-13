@@ -1,4 +1,4 @@
-// import Chart from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
+import Chart from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
 import { simulate, toStackedGraphDataset } from '../transforms/datagenerator.js';
 
