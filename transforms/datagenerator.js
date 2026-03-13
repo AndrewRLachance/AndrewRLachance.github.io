@@ -243,35 +243,6 @@ class SalesData {
     }
 }
 
-// const Inventory_Specification = loadCsv(readFileSync('/home/ai-developer/development/restaurant-reports/csvs/Inventory_Specification.csv', 'utf-8'))
-// const Products_Specification = loadCsv(readFileSync('/home/ai-developer/development/restaurant-reports/csvs/Products_Specification.csv', 'utf-8'))
-// const Recipes_Specification = loadCsv(readFileSync('/home/ai-developer/development/restaurant-reports/csvs/Recipes_Specification.csv', 'utf-8'))
-
-// const specs = buildSchemas({ Inventory_Specification, Products_Specification, Recipes_Specification })
-// const schema = new Schemas(specs)
-
-// const salesData = loadCsv(readFileSync('/home/ai-developer/development/restaurant-reports/csvs/Sales_Data.csv', 'utf-8'))
-// const inventoryData = loadCsv(readFileSync('/home/ai-developer/development/restaurant-reports/csvs/Inventory_Data.csv', 'utf-8'))
-
-// const inventory = loadInventoryData(inventoryData)
-// const soldProducts = loadProducts(salesData)
-
-// const initialInventory = Object.values(inventory.reduce((p, c) => (!(c.name in p) || c.date <= p[c.name]?.date) ? ({ ...p,  [c.name]: c }) : p, {}))
-// // console.log(initialInventory)
-// schema.setInitialInventory(initialInventory)
-// schema.addInitialInventory()
-
-// schema.setSales(soldProducts)
-
-// schema.runSales()
-
-// console.log(JSON.stringify({
-//     inventory,
-//     expectedInventory: schema.getInventory(),
-//     sales: schema.getProducts(),
-//     recipes: schema.getRecipes()
-// }))
-
 
 export function simulate({ Inventory_Specification, Products_Specification, Recipes_Specification, Sales_Data, Inventory_Data }) {
     const specs = buildSchemas({ Inventory_Specification, Products_Specification, Recipes_Specification })
@@ -336,10 +307,10 @@ export function toStackedGraphDataset(inventory, recipes, expectedInventory, key
     const expectedInventory = grouped[day]?.expectedInventory?.[0]?.amount ?? getLast(dataset3) ?? 0
 
     const difference = (getLast(dataset3) && actualInventory) ? actualInventory - getLast(dataset3) : 0
-
+    
     dataset1.push(recipeUsage)
-    dataset2.push(Math.abs(difference))
-    dataset3.push(difference < 0 ? expectedInventory + difference : expectedInventory)
+    dataset2.push(difference)
+    dataset3.push(expectedInventory)
 
   }
 

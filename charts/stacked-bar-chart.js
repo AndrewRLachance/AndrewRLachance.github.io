@@ -1,4 +1,4 @@
-import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement, Title, Legend } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
+import { BarController, BarElement, CategoryScale, Chart, LinearScale, PointElement, Title, Legend, Tooltip } from "https://cdn.jsdelivr.net/npm/chart.js/+esm";
 import initialData from '../data/initial-data.js';
 import { simulate, toStackedGraphDataset, fromGramsToOz } from '../transforms/datagenerator.js';
 
@@ -9,7 +9,8 @@ Chart.register([
   LinearScale,
   PointElement,
   Title,
-  Legend
+  Legend,
+  Tooltip
 ]);
 
 
@@ -176,7 +177,7 @@ function tryRenderChart() {
       },
       responsive: true,
       interaction: {
-        intersect: false,
+        intersect: true,
       },
       scales: {
         x: {
