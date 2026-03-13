@@ -51,7 +51,6 @@ function replaceTableWithEditableJSON(tableId, jsonData) {
 
         keys.forEach(key => {
             const td = document.createElement("td");
-            td.contentEditable = "true";
             td.textContent = row[key];
             tr.appendChild(td);
         });
