@@ -1,7 +1,7 @@
-import _, { } from 'lodash';
+import _, { } from "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.js";
 import { toMetricBase } from '../measurements.js';
 import { buildSchemas, loadInventoryData, loadSales } from './ingestion.js';
-import { getWeekOfMonth, getMonth, isEqual } from 'date-fns'
+import { getWeekOfMonth, getMonth, isEqual } from "https://cdn.jsdelivr.net/npm/date-fns@3/+esm";
 
 class Schemas {
 

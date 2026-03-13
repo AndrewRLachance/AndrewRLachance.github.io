@@ -1,4 +1,4 @@
-import Papa from 'papaparse';
+import Papa from "https://cdn.jsdelivr.net/npm/papaparse@5.4.1/+esm";
 import { toMetricBase } from './conversions.js';
 
 const toUnit = ({ IngredientName: name, Amount: amount, Unit: unit }) => ({ name, amount, unit })
