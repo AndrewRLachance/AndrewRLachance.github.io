@@ -95,6 +95,8 @@ function tryPopulateDropdown() {
     if(!Inventory_Specification) return 
     
     ingredientDropdown.push(...Inventory_Data.map(({ name }) => name))
+    console.log(ingredientDropdown)
+    console.log(Inventory_Data.map(({ name }) => name))
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
 
