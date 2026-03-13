@@ -213,5 +213,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
 
   tryPopulateDropdown();
-  onDropdownSelection("columnDropdown", selectedValue => {selectedIngredient = selectedValue});
+  onDropdownSelection("ingredients-dropdown", selectedValue => {selectedIngredient = selectedValue});
 });
