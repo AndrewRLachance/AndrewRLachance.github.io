@@ -8,7 +8,7 @@ let {
 
 const ingredientDropdown = []
 
-let selectedIngredient = null
+let selectedIngredient = 'burger'
 let chart = null
 const htmlIdJsonMap = {
   'inventory-specification': initialData.Inventory_Specification,
@@ -130,7 +130,7 @@ function tryRenderChart() {
 
   const { inventory, expectedInventory, sales, recipes } = simulate({ Inventory_Specification, Products_Specification, Recipes_Specification, Sales_Data, Inventory_Data })
   
-  const { dataset1, dataset2, dataset3 } = toStackedGraphDataset(inventory, recipes, expectedInventory, selectedIngredient || 'burger')
+  const { dataset1, dataset2, dataset3 } = toStackedGraphDataset(inventory, recipes, expectedInventory, selectedIngredient)
 
   const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
