@@ -6,7 +6,7 @@ let {
   Recipes_Specification, Products_Specification, Inventory_Specification, Sales_Data, Inventory_Data
 } = initialData
 
-const ingredientDropdown = []
+let ingredientDropdown = []
 
 let selectedIngredient = 'burger'
 let chart = null
@@ -94,7 +94,7 @@ function populateDropdown(selectId, values) {
 function tryPopulateDropdown() {
     if(!Inventory_Specification) return 
     
-    ingredientDropdown.push(...Inventory_Data.map(({ Name='', name }) => Name || name))
+    ingredientDropdown = [...new Set(Inventory_Data.map(({ Name='', name }) => Name || name))]
 
     populateDropdown('ingredients-dropdown', ingredientDropdown)
 }
