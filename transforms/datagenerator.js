@@ -290,7 +290,7 @@ export function simulate({ Inventory_Specification, Products_Specification, Reci
     schema.runSales()
 
     return {
-        inventoryData,
+        inventory: inventoryData,
         expectedInventory: schema.getInventory(),
         sales: schema.getProducts(),
         recipes: schema.getRecipes()

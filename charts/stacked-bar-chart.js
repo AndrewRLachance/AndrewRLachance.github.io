@@ -129,7 +129,7 @@ function tryRenderChart() {
   if (!Inventory_Specification || !Products_Specification || !Recipes_Specification || !Sales_Data || !Inventory_Data) return;
 
   const { inventory, expectedInventory, sales, recipes } = simulate({ Inventory_Specification, Products_Specification, Recipes_Specification, Sales_Data, Inventory_Data })
-
+  
   const { dataset1, dataset2, dataset3 } = toStackedGraphDataset(inventory, recipes, expectedInventory, selectedIngredient || 'burger')
 
   const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
